@@ -5,18 +5,20 @@ from sqlalchemy import pool
 
 from alembic import context
 
+
+from app.models import Base
+
+
+
 config = context.config
 
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-target_metadata = None
+target_metadata = Base.metadata
 
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
+
 
 
 def run_migrations_offline() -> None:
