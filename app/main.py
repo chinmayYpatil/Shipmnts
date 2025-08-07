@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-
 from app.routers import calculate, plan, store
 from .routers import auth
 # As you create new features, you will import their routers here

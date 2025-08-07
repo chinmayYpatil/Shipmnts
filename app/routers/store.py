@@ -1,4 +1,4 @@
-from fastapi import APIRouter,Depends,status,HTTPExecution,HTTPException
+from fastapi import APIRouter,Depends,status,HTTPException
 from sqlalchemy.orm import Session
 from ..import database,schemas,models
 
@@ -9,7 +9,7 @@ router=APIRouter(tags=['Store'])
 def create_store(store:schemas.StoreCreate,db:Session=Depends(database.get_db)):
     db_store=db.query(models.Store).filter(models.Store.store_location==store.store_location)()
     if db_store:
-        raise HTTPExecution(status_code=status.store_location)
+        raise HTTPException(status_code=status.store_location)
     new_store=models.Store(**store.dict())
     db.add(new_store)
     db.commit()

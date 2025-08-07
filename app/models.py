@@ -17,7 +17,7 @@ class User(Base):
 
 
 class Store(Base):
-    _tablesname_="stores"
+    __tablename__ ="stores"
     id =Column(Integer,primary_key=True,nullable=False)
     store_location=Column(String,nullable=False,unique=True)
     currency=Column(String,nullable=False,unique=True)
